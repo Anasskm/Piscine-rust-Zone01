@@ -1,2 +1,5 @@
 test1/
 
+*/target/
+
+Cargo.lock
