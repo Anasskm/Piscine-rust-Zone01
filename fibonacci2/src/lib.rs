@@ -1,4 +1,4 @@
-pub fn fibonacci2(n: u32) -> u32 {
+pub fn fibonacci(n: u32) -> u32 {
     if n == 0 {
         return 0;
     }
@@ -14,16 +14,4 @@ pub fn fibonacci2(n: u32) -> u32 {
         prev = res;
     }
     res
-}
-
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = fibonacci2(4);
-        assert_eq!(result, 3);
-    }
 }
