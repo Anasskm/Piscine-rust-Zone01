@@ -45,6 +45,7 @@ pub fn do_operations(v: &mut Vec<String>) {
 						*element = (x + y).to_string()
 					},
                     '-' => {
+                        let y = -y;
 						*element = (x - y).to_string()
 					}
 					_ => println!("{} is not a valid operator!!",o)
