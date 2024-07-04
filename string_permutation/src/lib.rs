@@ -1,6 +1,7 @@
-use std::collections::HashMap;
-
 pub fn is_permutation(s1: &str, s2: &str) -> bool {
+    if s1.len() != s2.len(){
+        return false;
+    }
     let mut s1_map = HashMap::new();
     let mut s2_map = HashMap::new();
     for s in s1.chars().into_iter() {
