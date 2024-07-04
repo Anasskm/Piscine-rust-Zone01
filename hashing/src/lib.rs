@@ -8,7 +8,7 @@ pub fn median(list: &Vec<i32>) -> i32 {
     let mut l = list.clone();
     l.sort();
     let mid = l.len() / 2;
-    if mid % 2 == 0 {
+    if l.len() % 2 == 0 {
         return (l[mid - 1] + l[mid]) / 2;
     }
     l[mid]
