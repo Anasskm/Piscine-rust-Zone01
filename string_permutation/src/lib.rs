@@ -16,10 +16,6 @@ pub fn is_permutation(s1: &str, s2: &str) -> bool {
         let count = s2_map.entry(s).or_insert(0);
         *count += 1
     }
-    for (key, value) in s1_map {
-        if  !s2_map.contains_key(&key) ||s2_map[&key] != value {
-            return false;
-        }
-    }
-    true
+    
+    s1_map == s2_map
 }
