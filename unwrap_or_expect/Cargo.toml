@@ -1,7 +1,6 @@
 [package]
-name = "card_deck"
+name = "unwrap_or_expect"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rand = "0.8.5"
