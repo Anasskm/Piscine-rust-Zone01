@@ -1,8 +1,7 @@
-use std::fs::{File, OpenOptions};
-use std::io::{Read, Write};
+use std::fs::OpenOptions;
+use std::io::Write;
 
 pub fn open_or_create(file: &str, content: &str) {
-
     let mut file_handle = match OpenOptions::new()
         .read(true)
         .write(true)
