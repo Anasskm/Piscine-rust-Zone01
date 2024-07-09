@@ -1,6 +1,8 @@
-use std::fs;
 use std::fs::File;
 
 pub fn open_file(s: &str) -> File {
-    File::open(s).unwrap()
+    match File::open(s) {
+        Ok(f) => f,
+        Err(_) => panic!("{}", "File not found"),
+    }
 }
