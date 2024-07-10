@@ -37,7 +37,7 @@ impl TodoList {
             return Err(Box::new(ParseErr::Empty));
         }
         let parsed_json =
-            parse(&s).map_err(|e| Box::new(ParseErr::Malformed(Box::new(e))) as Box<dyn Error>)?;
+            parse(&s).map_err(|e| Box::new(ParseErr::Malformed(Box::new(e)))) ?;
         let title = parsed_json["title"]
             .as_str()
             .ok_or_else(|| Box::new(ParseErr::Empty))?
