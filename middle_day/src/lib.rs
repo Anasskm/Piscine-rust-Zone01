@@ -1,7 +1,4 @@
-extern crate chrono;
-use chrono::{Datelike, NaiveDate };
-use chrono::Weekday as wd;
-
+pub use chrono::{Datelike, NaiveDate, Weekday as wd};
 
 pub fn middle_day(year: i32) -> Option<wd> {
     let start = NaiveDate::from_ymd_opt(year, 1, 1)?;
@@ -10,6 +7,6 @@ pub fn middle_day(year: i32) -> Option<wd> {
     if days % 2 == 0 {
         return None;
     }
-    let z =  NaiveDate::from_yo_opt(year, (days / 2)+1)?;
+    let z = NaiveDate::from_yo_opt(year, (days / 2) + 1)?;
     Some(z.weekday())
 }
