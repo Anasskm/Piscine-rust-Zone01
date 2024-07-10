@@ -1,3 +1,5 @@
+//lib.rs
+
 mod err;
 use err::{ParseErr, ReadErr};
 
@@ -42,11 +44,15 @@ impl TodoList {
             .to_string();
 
         let mut tasks: Vec<Task> = Vec::new();
+        if parsed_json["tasks"].len() == 0 {
+            return Err(Box::new(ParseErr::Empty));
+        }
+
         for i in 0..parsed_json["tasks"].len() {
             let task = Task {
                 id: parsed_json["tasks"][i]["id"]
                     .as_u32()
-                    .ok_or_else(|| Box::new(ParseErr::Empty))?,
+                    .ok_or(Box::new(ParseErr::Empty))?,
                 description: parsed_json["tasks"][i]["description"]
                     .as_str()
                     .ok_or_else(|| Box::new(ParseErr::Empty))?
