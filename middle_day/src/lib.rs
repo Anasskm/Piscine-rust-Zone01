@@ -1,3 +1,4 @@
+extern crate chrono;
 use chrono::{Datelike, NaiveDate };
 use chrono::Weekday as wd;
 
