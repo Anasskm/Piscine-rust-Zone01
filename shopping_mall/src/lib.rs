@@ -36,13 +36,14 @@ pub fn nbr_of_employees(mall: Mall) -> usize {
 
 pub fn check_for_securities(mall: &mut Mall, guards: Vec<Guard>) {
     let mut g = guards.clone();
+    let mut count = 0_usize;
     let s = mall
         .floors
         .iter()
         .flat_map(|floor| &floor.stores)
         .fold(0_u64, |acc, x| acc + x.square_meters);
-    println!("**********s = {} *************", s / 200);
-    while mall.guards.len() * 200 < s as usize && g.len() > 0 {
+    while count * 200 < s as usize && g.len() > 0 {
+        count += 1;
         mall.guards.push(g[0].clone());
         g.remove(0);
     }
