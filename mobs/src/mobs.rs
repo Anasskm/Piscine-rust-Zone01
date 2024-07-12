@@ -52,10 +52,10 @@ impl Mob {
         self.wealth += mob.wealth;
         mob.wealth = 0;
     }
-    pub fn conquer_city(&mut self, mobs: Vec<&Mob>, city: String, value: u8) {
+    pub fn conquer_city(&mut self, mobs: Vec<Mob>, city: String, value: u8) {
         let have = mobs
             .iter()
-            .flat_map(|&m| m.cities.clone())
+            .flat_map(|m| m.cities.clone())
             .any(|(e, _)| e == city);
         if !have {
             self.cities.push((city, value))
