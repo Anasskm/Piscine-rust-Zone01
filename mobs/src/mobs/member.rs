@@ -5,7 +5,7 @@ pub struct Member {
     pub age: u8,
 }
 
-#[derive(Debug, Clone, PartialEq,Copy)]
+#[derive(Debug, Clone, PartialEq, Copy)]
 pub enum Role {
     Underboss,
     Caporegime,
@@ -14,8 +14,12 @@ pub enum Role {
 }
 
 impl Member {
-    pub fn new(name: String, role: Role, age: u8) -> Member {
-        Member { name, role, age }
+    pub fn new(name: &str, role: Role, age: u8) -> Member {
+        Member {
+            name: name.to_string(),
+            role,
+            age,
+        }
     }
     pub fn get_promotion(&mut self) {
         match self.role {
