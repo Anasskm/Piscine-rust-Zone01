@@ -5,3 +5,4 @@ test1/
 
 scytale_cipher/
 */Cargo.lock
+.gitignore
