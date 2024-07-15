@@ -34,7 +34,7 @@ The Piscine Rust is an intensive bootcamp designed to teach Rust from scratch. I
 ```bash
 git clone https://github.com/Anasskm/Piscine-rust-Zone01.git
 ```
-🤖 Ensure you have Rust and Cargo installed
+🤖 Ensure that you have Rust and Cargo installed
 
 ---
 
