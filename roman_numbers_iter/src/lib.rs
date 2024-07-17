@@ -66,9 +66,9 @@ impl From<u32> for RomanNumber {
 }
 
 impl Iterator for RomanNumber {
-    type Item = RomanDigit;
+    type Item = RomanNumber;
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.0.pop()
+        self.0.pop().map(|digit| RomanNumber(vec![digit]))
     }
 }
