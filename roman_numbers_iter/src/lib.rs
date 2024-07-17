@@ -10,7 +10,20 @@ pub enum RomanDigit {
     D,
     M,
 }
-
+impl RomanDigit {
+    pub fn to(&self) -> u32 {
+        match self {
+            RomanDigit::Nulla => 0,
+            RomanDigit::I => 1,
+            RomanDigit::V => 5,
+            RomanDigit::X => 10,
+            RomanDigit::L => 50,
+            RomanDigit::C => 100,
+            RomanDigit::D => 500,
+            RomanDigit::M => 1000,
+        }
+    }
+}
 // Define the RomanNumber struct as a wrapper for a vector of RomanDigit
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RomanNumber(pub Vec<RomanDigit>);
@@ -24,8 +37,6 @@ enum RomanValue {
 impl From<u32> for RomanNumber {
     fn from(mut num: u32) -> Self {
         let mut digits = Vec::new();
-        println!("num: {}", num);
-
         // Update the values to use RomanValue
         let values = vec![
             (1000, RomanValue::Single(RomanDigit::M)),
@@ -70,6 +81,26 @@ impl Iterator for RomanNumber {
     type Item = RomanNumber;
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.0.pop().map(|digit| RomanNumber(vec![digit]))
+        Some(RomanNumber::from(self.to_u32() + 1))
+    }
+}
+
+impl RomanNumber {
+    pub fn to_u32(&self) -> u32 {
+        if self.0.len() == 0 {
+            return 0;
+        }
+        let mut result = 0;
+        let mut last = self.0[0];
+        for i in 1..self.0.len() {
+            if self.0[i].to() as i32 <= last.to() as i32 {
+                result += last.to() as i32;
+            } else {
+                result -= last.to() as i32;
+            }
+            last = self.0[i];
+        }
+        result += last.to() as i32;
+        result as u32
     }
 }
