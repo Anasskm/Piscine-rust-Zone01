@@ -1,0 +1,7 @@
+[package]
+name = "lalgebra_vector"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lalgebra_scalar = { version = "0.1.0", path = "../lalgebra_scalar" }
