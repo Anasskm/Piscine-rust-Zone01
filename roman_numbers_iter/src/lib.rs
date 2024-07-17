@@ -24,6 +24,7 @@ enum RomanValue {
 impl From<u32> for RomanNumber {
     fn from(mut num: u32) -> Self {
         let mut digits = Vec::new();
+        println!("num: {}", num);
 
         // Update the values to use RomanValue
         let values = vec![
