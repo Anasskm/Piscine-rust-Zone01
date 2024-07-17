@@ -2,7 +2,7 @@ use lalgebra_scalar::*;
 
 // Assuming the Scalar trait is defined as follows:
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone,PartialEq,Eq)]
 pub struct Matrix<T>(pub Vec<Vec<T>>);
 
 impl<T: Scalar + std::clone::Clone> Matrix<T> {
