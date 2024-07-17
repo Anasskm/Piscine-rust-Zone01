@@ -2,7 +2,7 @@ use std::ops::{Add, Sub};
 
 use lalgebra_scalar::*;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Matrix<T>(pub Vec<Vec<T>>);
 
 impl<T: Scalar + std::clone::Clone> Matrix<T> {
