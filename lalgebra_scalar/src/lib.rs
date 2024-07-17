@@ -1,7 +1,7 @@
 use std::ops::{Add, Div, Mul, Sub};
 
 pub trait Scalar:
-    Add<Output = Self> + Sub<Output = Self> + Mul<Output = Self> + Div<Output = Self> + Sized
+    Add<Output = Self> + Sub<Output = Self> + Mul<Output = Self> + Div<Output = Self> + Sized + Copy
 {
     fn zero() -> Self;
     fn one() -> Self;
